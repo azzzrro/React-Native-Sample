@@ -1,14 +1,23 @@
 import React from 'react';
-import {View, Text, SafeAreaView} from 'react-native';
+import { SafeAreaView, StyleSheet, ScrollView } from 'react-native';
+import FlatCards from './components/FlatCards';
 
 function App() {
+
   return (
-    <SafeAreaView>
-      <View>
-        <Text>This is a sample Hello world App to test signed APK!</Text>
-      </View>
-    </SafeAreaView>
+    <SafeAreaView style={styles.container}>
+      <ScrollView>
+        <FlatCards />
+      </ScrollView>
+    </SafeAreaView >
   );
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
+})
 export default App;
