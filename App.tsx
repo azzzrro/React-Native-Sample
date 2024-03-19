@@ -1,23 +1,19 @@
 import React from 'react';
-import { SafeAreaView, StyleSheet, ScrollView } from 'react-native';
-import FlatCards from './components/FlatCards';
+import { SafeAreaView, ScrollView } from 'react-native';
+// import Home from './Pages/Home';
+import Login from './Pages/Login';
 
 function App() {
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView>
       <ScrollView>
-        <FlatCards />
+        {/* <Home/> */}
+        <Login/>
       </ScrollView>
     </SafeAreaView >
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  }
-})
+
 export default App;
