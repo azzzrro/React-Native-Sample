@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, View, Linking, TouchableOpacity } from 'react-native'
 import React from 'react'
 
 export default function ImageCards() {
@@ -11,6 +11,11 @@ export default function ImageCards() {
         }}
         style={styles.image}
         />
+        <View>
+          <TouchableOpacity onPress={()=> Linking.openURL("https://reactnavigation.org/docs/getting-started/")}>
+          <Text style={styles.imageMore}>Click here to visit!</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   )
@@ -29,5 +34,12 @@ const styles = StyleSheet.create({
         borderRadius:5,
         marginTop:5,
         marginHorizontal:5
+    },
+    imageMore:{
+      fontSize:15,
+      fontWeight:"700",
+      marginLeft:5,
+      marginTop:7,
+      color:"green"
     }
 })

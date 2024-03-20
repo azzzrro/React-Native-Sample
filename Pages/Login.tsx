@@ -1,9 +1,17 @@
-import { StyleSheet, Text, View, Dimensions, TextInput,Button } from 'react-native'
+import { StyleSheet, Text, View, Dimensions, TextInput, Button, Linking, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
+import { useNavigation } from '@react-navigation/native'
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+import { RootStackParamList } from '../App'
 
 export default function Login() {
+    const navigate = useNavigation<NativeStackNavigationProp<RootStackParamList>>()
     const [userName, setuserName] = useState("")
     const [password, setpassword] = useState("")
+
+    const openWebsite = (websiteLink: string) => {
+        Linking.openURL(websiteLink)
+    }
     return (
         <View style={styles.container}>
             <View>
@@ -22,7 +30,14 @@ export default function Login() {
                         value={password}
                         placeholder="Password"
                     />
-                    <Button title="LOGIN" />
+                    <Button onPress={() => navigate.navigate('Home')} title="LOGIN" />
+                </View>
+                <View style={styles.bottom}>
+                    <TouchableOpacity
+                        onPress={() => openWebsite("https://github.com/azzzrro")}
+                    >
+                        <Text>Facing Trouble? Contact Us.</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         </View>
@@ -39,19 +54,22 @@ const styles = StyleSheet.create({
     },
     input: {
         height: 40,
-        width:250,
-        // margin: 12,
+        width: 250,
         borderWidth: 1,
         padding: 10,
-        borderRadius:8
+        borderRadius: 8
     },
-    login:{
-        gap:10,
-        marginTop:10
+    login: {
+        gap: 10,
+        marginTop: 10
     },
-    heading:{
-        fontSize:20,
-        fontWeight:"700",
-        alignItems:"center"
+    heading: {
+        fontSize: 20,
+        fontWeight: "700",
+        alignItems: "center"
+    },
+    bottom: {
+        marginTop: 10,
+        alignItems: "center"
     }
 })
